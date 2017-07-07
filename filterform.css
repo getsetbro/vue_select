@@ -1,3 +1,7 @@
+.v-select input[type=text],
+.v-select input[type=text]:focus{appearance:none;-webkit-appearance:none;-moz-appearance:none;line-height:1.42857143;font-size:1em;height:34px;display:inline-block;border:none;outline:none;margin:0;padding:0 .5em;width:10em;max-width:100%;background:none;position:relative;box-shadow:none;float:left;clear:none}
+
+
 .filterform {
     background-color: #d0dee5;
 }
@@ -8,6 +12,7 @@
 .filterform-top {
     position:relative;
     padding: 10px 10px 0 10px;
+    min-height: 47px;
 }
 .filterform-top:not(.open) {
     height: 47px;

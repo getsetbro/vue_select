@@ -24,9 +24,13 @@
                 <div class="filterform">
                     <div class="filterform-top" v-bind:class="{open:tagsExpanded}">
                         <div class="clearfix filterform-tags" ref="fftags">
-                            <span v-for="(item,index) in selected" :key="index" class="filterform-tag">
-                                {{item.value}}
+                            <span v-for="(item,index) in selected" :key="index" class="filterform-tag">{{item.value}}
                                 <button type="button" class="btn btn-link btn-xs" v-on:click="removeTag(item)">
+                                    <img src="Content/img/x-circle.svg" alt="Remove" style="width:20px;height:20px;"/>
+                                </button>
+                            </span>
+                            <span v-for="(item,index) in selectedZipcodes" :key="index" class="filterform-tag">{{item}}
+                                <button type="button" class="btn btn-link btn-xs" v-on:click="removeZip(item)">
                                     <img src="Content/img/x-circle.svg" alt="Remove" style="width:20px;height:20px;"/>
                                 </button>
                             </span>
@@ -39,12 +43,13 @@
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Brand</label>   <v-select multiple :on-change="vselectChange" :options="brands"     v-model="selectedBrands"></v-select></div>   </div>
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">State</label>   <v-select multiple :on-change="vselectChange" :options="states"     v-model="selectedStates"></v-select></div>   </div>
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">City</label>    <v-select multiple :on-change="vselectChange" :options="cities"     v-model="selectedCities"></v-select></div>    </div>
-                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label><v-select multiple :on-change="vselectChange" :options="zipcodes"   v-model="selectedZipcodes"></v-select></div></div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label><v-select multiple :on-change="vselectChange" :options="zipcodes"   v-model="selectedZipcodes" push-tags taggable></v-select></div></div>
+                        <!--<div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label><add-one :on-change="vselectChange" text="selectedZipcodes"></add-one></div></div>-->
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Industry</label><v-select multiple :on-change="vselectChange" :options="industries" v-model="selectedIndustries"></v-select></div></div>
+
                     </div>
                     <div class="filterform-btns">
-                        <button type="button" class="btn btn-info" v-on:click="clearFilters">Clear Filters</button>
-                        <button type="button" class="btn btn-white">Cancel</button>
+                        <button type="button" class="btn btn-white" v-on:click="clearFilters">Clear Filters</button>
                         <button type="button" class="btn btn-dark">Apply</button>
                     </div>
                 </div>
@@ -61,6 +66,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
 <script src="https://unpkg.com/vue-select@latest"></script>
 <script src="https://unpkg.com/lodash@latest"></script>
+<script src="add-one.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
