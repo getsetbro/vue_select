@@ -3,6 +3,7 @@ var vm = new Vue({
 el: "#app",
 data:{
     tagsExpanded:false,
+    tagsOverflow:false,
     //selected: null,
     brands: [{ "label": "Elkyway", "value": "Elkyway", "type": "Brand" }, { "label": "Halsey Swift", "value": "Halsey Swift", "type": "Brand" }],
     selectedBrands: [],
@@ -14,7 +15,6 @@ data:{
     selectedZipcodes: [],
     industries: [{ "label": "Airport", "value": "Airport", "type": "Industry" }, { "label": "Church", "value": "Church", "type": "Industry" }, { "label": "Daycare Facility", "value": "Daycare Facility", "type": "Industry" }, { "label": "Elder Care Facility", "value": "Elder Care Facility", "type": "Industry" }, { "label": "Fitness Center/Health Care", "value": "Fitness Center/Health Care", "type": "Industry" }, { "label": "Government Building", "value": "Government Building", "type": "Industry" }, { "label": "Healthcare", "value": "Healthcare", "type": "Industry" }, { "label": "Hospitality", "value": "Hospitality", "type": "Industry" }, { "label": "Office Building", "value": "Office Building", "type": "Industry" }, { "label": "Other (specify)", "value": "Other (specify)", "type": "Industry" }, { "label": "Parks and Recreation", "value": "Parks and Recreation", "type": "Industry" }, { "label": "Public Facilities", "value": "Public Facilities", "type": "Industry" }, { "label": "Retail Environment", "value": "Retail Environment", "type": "Industry" }, { "label": "School K-12", "value": "School K-12", "type": "Industry" }, { "label": "Showroom", "value": "Showroom", "type": "Industry" }, { "label": "Tourist Attraction (specify)", "value": "Tourist Attraction (specify)", "type": "Industry" }, { "label": "College/University", "value": "College/University", "type": "Industry" }],
     selectedIndustries: [],
-    tagsOverflow:false,
     typesArr:{
         Brand:'selectedBrand',
         State:'selectedStates',
@@ -52,17 +52,14 @@ methods:{
         this.selectedCities = [];
         this.selectedZipcodes = [];
         this.selectedIndustries = [];
-
-    }
-},
-watch:{
-    selected:function(){
+    },
+    vselectChange:function(){
         if(this.$refs.fftags && this.$refs.fftags.clientHeight && this.$refs.fftags.clientHeight > 50){
             this.tagsOverflow = true;
             return;
         }
         this.tagsOverflow = false;
-
+        
     }
 }
 

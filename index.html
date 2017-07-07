@@ -36,11 +36,11 @@
                         </div>
                     </div>
                     <div class="filterform-selects">
-                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Brand</label>   <v-select multiple max-------height="155px" :options="brands"     v-model="selectedBrands"></v-select></div>   </div>
-                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">State</label>   <v-select multiple max-------height="155px" :options="states"     v-model="selectedStates"></v-select></div>   </div>
-                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">City</label>    <v-select multiple max-------height="155px" :options="cities"     v-model="selectedCities"></v-select></div>    </div>
-                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label><v-select multiple max-------height="155px" :options="zipcodes"   v-model="selectedZipcodes"></v-select></div></div>
-                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Industry</label><v-select multiple max-------height="155px" :options="industries" v-model="selectedIndustries"></v-select></div></div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Brand</label>   <v-select multiple :on-change="vselectChange" :options="brands"     v-model="selectedBrands"></v-select></div>   </div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">State</label>   <v-select multiple :on-change="vselectChange" :options="states"     v-model="selectedStates"></v-select></div>   </div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">City</label>    <v-select multiple :on-change="vselectChange" :options="cities"     v-model="selectedCities"></v-select></div>    </div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label><v-select multiple :on-change="vselectChange" :options="zipcodes"   v-model="selectedZipcodes"></v-select></div></div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Industry</label><v-select multiple :on-change="vselectChange" :options="industries" v-model="selectedIndustries"></v-select></div></div>
                     </div>
                     <div class="filterform-btns">
                         <button type="button" class="btn btn-info" v-on:click="clearFilters">Clear Filters</button>
