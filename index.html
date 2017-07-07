@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="filterform.css">
+<style>
+
+</style>
+</head>
+<body>
+    <header class="Topnav">
+        <div class="container-fluid">BRAND</div>
+    </header>
+    <main>
+        <nav id="leftNav" class="LeftNav"></nav>
+        <div class="MainArea">
+            <div id="app">
+                <br />
+                <div class="filterform" v-bind:class="{open:ffExpanded}">
+                    <div class="filterform-top">
+                        <div class="clearfix filterform-tags">
+                            <span v-for="(item,index) in selected" :key="index" class="filterform-tag">
+                                {{item.value}}
+                                <button type="button" class="btn btn-link btn-xs">
+                                    <img src="../Content/img/x-circle.svg" alt="Remove" style="width:20px;height:20px;"/>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="filterform-top-right">
+                            <button class="btn btn-link" v-on:click="ffExpanded = !ffExpanded">
+                                <img src="../Content/img/expand.svg" style="width:24px;height:24px;"/>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="filterform-selects">
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Brand</label>   <v-select multiple max-------height="155px" :options="brands"     v-model="selectedBrands"></v-select></div>   </div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">State</label>   <v-select multiple max-------height="155px" :options="states"     v-model="selectedStates"></v-select></div>   </div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">City</label>    <v-select multiple max-------height="155px" :options="cities"     v-model="selectedCities"></v-select></div>    </div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label><v-select multiple max-------height="155px" :options="zipcodes"   v-model="selectedZipcodes"></v-select></div></div>
+                        <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Industry</label><v-select multiple max-------height="155px" :options="industries" v-model="selectedIndustries"></v-select></div></div>
+                    </div>
+                    <div class="filterform-btns">
+                        <button type="button" class="btn btn-white btn-lg">Cancel</button>
+                        <button type="button" class="btn btn-dark btn-lg">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p></p>
+        <p class="container-fluid">footer</p>
+        <p></p>
+    </footer>
+
+<script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+<script src="https://unpkg.com/vue-select@latest"></script>
+<script src="app.js"></script>
+</body>
+</html>
