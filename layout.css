@@ -11,9 +11,6 @@ padding-top: 12px;
 }
 main{
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
     align-items: flex-start;
 }
 .LeftNav {
@@ -23,7 +20,6 @@ width: 242px;
 height: 80vh;
 }
 .MainArea {
-display: inline-block;
 max-width: 860px;
 width: calc(100% - 242px);
 padding-right: 15px;
