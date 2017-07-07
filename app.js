@@ -2,7 +2,6 @@ Vue.component('v-select', VueSelect.VueSelect);
 var vm = new Vue({
 el: "#app",
 data:{
-    ffExpanded:false,
     tagsExpanded:false,
     //selected: null,
     brands: [{ "label": "Elkyway", "value": "Elkyway", "type": "Brand" }, { "label": "Halsey Swift", "value": "Halsey Swift", "type": "Brand" }],
@@ -29,6 +28,15 @@ computed:{
     selected: function () {
         //var d = a.concat(b, c);
         return this.selectedBrands.concat(this.selectedStates, this.selectedCities, this.selectedZipcodes, this.selectedIndustries);
+    },
+    viewAllLabel: function () {
+        if(this.tagsExpanded){
+            return "View less";
+        }
+        if(this.selected.length){
+            return 'View all ' + this.selected.length;
+        }
+        return 'View all';
     }
 },
 methods:{
@@ -37,6 +45,14 @@ methods:{
         var arr = vm[str];
         var idx = _.findIndex(arr, { 'label': tag.label});
         arr.splice(idx, 1);
+    },
+    clearFilters:function(){
+        this.selectedBrands = [];
+        this.selectedStates = [];
+        this.selectedCities = [];
+        this.selectedZipcodes = [];
+        this.selectedIndustries = [];
+
     }
 },
 watch:{

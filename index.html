@@ -21,7 +21,7 @@
         <div class="MainArea">
             <div id="app">
                 <br />
-                <div class="filterform" v-bind:class="{open:ffExpanded}">
+                <div class="filterform">
                     <div class="filterform-top" v-bind:class="{open:tagsExpanded}">
                         <div class="clearfix filterform-tags" ref="fftags">
                             <span v-for="(item,index) in selected" :key="index" class="filterform-tag">
@@ -30,11 +30,8 @@
                                     <img src="Content/img/x-circle.svg" alt="Remove" style="width:20px;height:20px;"/>
                                 </button>
                             </span>
-                            <button class="btn btn-tag btn-sm" v-show="tagsOverflow" v-on:click="tagsExpanded = !tagsExpanded">View all</button>
-                        </div>
-                        <div class="filterform-top-right">
-                            <button class="btn btn-link" v-on:click="ffExpanded = !ffExpanded">
-                                <img src="Content/img/expand.svg" style="width:24px;height:24px;"/>
+                            <button class="btn btn-tag btn-sm" v-show="tagsOverflow" v-on:click="tagsExpanded = !tagsExpanded">
+                                <span v-text="viewAllLabel"></span>
                             </button>
                         </div>
                     </div>
@@ -46,8 +43,9 @@
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Industry</label><v-select multiple max-------height="155px" :options="industries" v-model="selectedIndustries"></v-select></div></div>
                     </div>
                     <div class="filterform-btns">
-                        <button type="button" class="btn btn-white btn-lg" v-on:click="ffExpanded = !ffExpanded">Cancel</button>
-                        <button type="button" class="btn btn-dark btn-lg" v-on:click="ffExpanded = !ffExpanded">Apply</button>
+                        <button type="button" class="btn btn-info" v-on:click="clearFilters">Clear Filters</button>
+                        <button type="button" class="btn btn-white">Cancel</button>
+                        <button type="button" class="btn btn-dark">Apply</button>
                     </div>
                 </div>
             </div>
