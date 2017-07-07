@@ -22,14 +22,15 @@
             <div id="app">
                 <br />
                 <div class="filterform" v-bind:class="{open:ffExpanded}">
-                    <div class="filterform-top">
-                        <div class="clearfix filterform-tags">
+                    <div class="filterform-top" v-bind:class="{open:tagsExpanded}">
+                        <div class="clearfix filterform-tags" ref="fftags">
                             <span v-for="(item,index) in selected" :key="index" class="filterform-tag">
                                 {{item.value}}
                                 <button type="button" class="btn btn-link btn-xs">
                                     <img src="Content/img/x-circle.svg" alt="Remove" style="width:20px;height:20px;"/>
                                 </button>
                             </span>
+                            <button class="btn btn-tag btn-sm" v-show="tagsOverflow" v-on:click="tagsExpanded = !tagsExpanded">View all</button>
                         </div>
                         <div class="filterform-top-right">
                             <button class="btn btn-link" v-on:click="ffExpanded = !ffExpanded">

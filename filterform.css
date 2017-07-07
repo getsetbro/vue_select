@@ -8,11 +8,24 @@
 .filterform-top {
     position:relative;
     padding: 10px 50px 0 10px;
-    min-height: 50px;
+}
+.filterform-top:not(.open) {
+    height: 47px;
+    overflow: hidden;
 }
 
 
 .filterform-tags {
+    position:relative;
+    padding-right: 90px;
+}
+.filterform-tags >button{
+    background-color: #e7f5f8;
+
+    position:absolute;
+    top:5px;
+    right:10px;
+    
 }
 
 .filterform-top-right{
@@ -32,6 +45,7 @@
     position: relative;
     white-space: nowrap;
 }
+
 .filterform-tag > button {
     position: absolute;
     top: 3px;
