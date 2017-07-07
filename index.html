@@ -45,8 +45,8 @@
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Industry</label><v-select multiple max-------height="155px" :options="industries" v-model="selectedIndustries"></v-select></div></div>
                     </div>
                     <div class="filterform-btns">
-                        <button type="button" class="btn btn-white btn-lg">Cancel</button>
-                        <button type="button" class="btn btn-dark btn-lg">Apply</button>
+                        <button type="button" class="btn btn-white btn-lg" v-on:click="ffExpanded = !ffExpanded">Cancel</button>
+                        <button type="button" class="btn btn-dark btn-lg" v-on:click="ffExpanded = !ffExpanded">Apply</button>
                     </div>
                 </div>
             </div>
