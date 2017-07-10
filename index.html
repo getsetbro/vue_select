@@ -45,10 +45,9 @@
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">City</label>    <v-select multiple :on-change="vselectChange" :options="cities"     v-model="selectedCities"></v-select></div>    </div>
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label>
                             <v-select multiple :on-change="vselectChange" :options="zipcodes"   v-model="selectedZipcodes" push-tags taggable>
-                            <span slot="no-options">Enter a zipcode</span>
+                                <span slot="no-options">Enter a zipcode</span>
                             </v-select>
                         </div></div>
-                        <!--<div class="filterform-select"><div class="filterform-group"><label class="filterform-label">ZIP Code</label><add-one :on-change="vselectChange" text="selectedZipcodes"></add-one></div></div>-->
                         <div class="filterform-select"><div class="filterform-group"><label class="filterform-label">Industry</label><v-select multiple :on-change="vselectChange" :options="industries" v-model="selectedIndustries"></v-select></div></div>
 
                     </div>
